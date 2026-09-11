@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>নোটিফিকেশন — Krishok Connect</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+</head>
+<body class="user-app">
+<div class="app">
+  <header class="page-header">
+    <a class="icon-btn" href="index.html"><span data-icon="back"></span></a>
+    <div class="page-title" style="flex:1;">নোটিফিকেশন</div>
+    <a class="link-sm" href="#" id="markAllBtn">সব পড়া হয়েছে</a>
+  </header>
+
+  <div id="notifList" style="padding:8px 12px;"></div>
+
+  <div class="bottom-nav" id="bottomNav"></div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async()=>{
+  await kcReady; if(!KC.currentUserId)return;
+  mountIcons();
+  renderBottomNav("");
+  renderNotifs();
+  document.getElementById("notifList").addEventListener('click', async(e)=>{const c=e.target.closest('[data-notif]');if(!c)return;try{await KC_API.post('/api/v1/notifications/'+encodeURIComponent(c.dataset.notif)+'/read');const n=KC.notifications.find(x=>x.id===c.dataset.notif);if(n)n.read=true;renderNotifs();setNotifBadge();}catch(err){toast(err.message)}});
+  document.getElementById("markAllBtn").addEventListener("click", async(e)=>{
+    e.preventDefault();
+    await KC_API.post("/api/v1/notifications/read-all");
+    KC.notifications.forEach(n=>n.read=true); renderNotifs(); setNotifBadge();
+  });
+});
+function renderNotifs(){
+  const el = document.getElementById("notifList");
+  if(KC.notifications.length===0){
+    el.innerHTML = `<div class="empty-state"><div class="empty-emoji">🔔</div><div class="empty-title">কোনো নোটিফিকেশন নেই</div></div>`;
+    return;
+  }
+  el.innerHTML = KC.notifications.map(n=>`
+    <div class="card" data-notif="${escapeHtml(n.id)}" style="cursor:pointer;display:flex; gap:11px; align-items:flex-start; padding:13px 14px; margin-bottom:9px; ${n.read?'':'border-color:var(--primary); background:var(--primary-light);'}">
+      <div class="icon-btn on-light" style="flex-shrink:0;">${icon('bell',16)}</div>
+      <div style="flex:1;">
+        <div style="font-size:13px; color:var(--ink); line-height:1.5;">${escapeHtml(n.text)}</div>
+        <div style="font-size:11px; color:var(--ink-muted); margin-top:4px;">${escapeHtml(n.time)}</div>
+      </div>
+      ${n.read?'':'<div style="width:8px; height:8px; border-radius:50%; background:var(--primary); margin-top:5px; flex-shrink:0;"></div>'}
+    </div>`).join("");
+}
+</script>
+</body>
+</html>

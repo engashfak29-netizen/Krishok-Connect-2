@@ -1,0 +1,140 @@
+/* ========================================================================
+   Krishok Connect — Realistic Mobile App UI
+   User/Farmer app: portrait-first, native-app visual language.
+   Staff/management UI intentionally does not use this stylesheet.
+   ======================================================================== */
+
+body.user-app{
+  background:#f4f6f2;
+  color:#1d2b22;
+  font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Bengali","Hind Siliguri",sans-serif;
+  overscroll-behavior-y:none;
+}
+body.user-app .app{
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+  background:#f4f6f2;
+  min-height:100vh;
+  box-shadow:none;
+}
+body.user-app .app-header{
+  background:#ffffff;
+  color:#173b22;
+  border-radius:0;
+  border-bottom:1px solid #e2e7e1;
+  padding:13px 15px 12px;
+}
+body.user-app .app-header::before{display:none}
+body.user-app .brand-mark{
+  background:#edf6ed; color:#176b32; border:1px solid #d9ead9;
+}
+body.user-app .brand-name{color:#173b22;font-size:16px}
+body.user-app .brand-tag{color:#7b877f}
+body.user-app .icon-btn{
+  background:#f3f6f3; color:#244b30; border:1px solid #e2e8e1;
+  border-radius:10px; width:36px; height:36px;
+}
+body.user-app .weather-card,
+body.user-app .advice-card,
+body.user-app .composer,
+body.user-app .card,
+body.user-app .post-card,
+body.user-app .product-card,
+body.user-app .dashboard-hero-card,
+body.user-app .farm-journal-card,
+body.user-app .service-card{
+  box-shadow:0 1px 3px rgba(30,50,35,.07);
+}
+body.user-app .weather-card{
+  margin-top:10px; border-radius:12px; padding:12px 13px;
+}
+body.user-app .section{padding:13px 15px}
+body.user-app .section-title{font-size:14px}
+body.user-app .price-row{gap:8px}
+body.user-app .price-card{
+  width:88px; border-radius:11px; padding:9px 7px; box-shadow:none;
+}
+body.user-app .price-emoji{font-size:21px}
+body.user-app .advice-card{
+  border-radius:12px; padding:11px 12px; background:#f1f8ef; border-color:#dbe9d8;
+}
+body.user-app .composer{
+  border-radius:12px; padding:10px 11px; margin-left:15px; margin-right:15px;
+}
+body.user-app .composer-input{background:#f4f6f4;border:1px solid #e1e6e1}
+body.user-app .feed{padding:12px 15px 4px;gap:10px}
+body.user-app .post-card{border-radius:12px;box-shadow:0 1px 3px rgba(30,50,35,.07)}
+body.user-app .post-head{padding:12px 12px 9px}
+body.user-app .post-text{font-size:13px;padding:0 12px 10px}
+body.user-app .post-stats{padding:9px 12px}
+body.user-app .bottom-nav{
+  bottom:0; width:100%; max-width:430px; height:62px;
+  border-radius:0; border-left:0; border-right:0; border-bottom:0;
+  box-shadow:0 -1px 5px rgba(30,50,35,.10);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+body.user-app .nav-fab{
+  width:48px;height:48px;margin-top:-20px;
+  box-shadow:0 3px 9px rgba(31,107,46,.25);
+}
+body.user-app .nav-item{font-size:9.5px;padding:5px 2px}
+body.user-app .page-header{
+  padding:12px 15px; border-bottom:1px solid #e2e7e1;
+}
+body.user-app .page-header .icon-btn{background:#f3f6f3}
+body.user-app .btn{border-radius:10px}
+body.user-app input,body.user-app textarea,body.user-app select{
+  border-radius:10px;
+}
+body.user-app .product-grid{padding-left:15px;padding-right:15px;gap:9px}
+body.user-app .product-card{border-radius:11px}
+body.user-app .chat-list{padding:4px 7px 12px}
+body.user-app .chat-row{padding:10px 8px;border-radius:10px}
+body.user-app .chat-input-bar{max-width:430px;border-radius:0;box-shadow:0 -1px 5px rgba(30,50,35,.08)}
+body.user-app .profile-cover{height:132px}
+body.user-app .profile-head{padding-left:15px;padding-right:15px}
+body.user-app .sheet{max-width:430px}
+body.user-app .toast{max-width:calc(100% - 30px)}
+
+/* Desktop browsers are not the target surface for the public app. Keep the
+   application as a phone-sized canvas for development/preview only. */
+@media (min-width:700px){
+  body.user-app{background:#e9ede8;padding:24px 0}
+  body.user-app .app{min-height:calc(100vh - 48px);border-radius:18px;overflow:hidden;box-shadow:0 10px 35px rgba(20,40,25,.12)}
+}
+
+/* The installed user app is portrait-only. */
+@media (orientation:landscape) and (max-width:699px){
+  body.user-app::before{
+    content:"Krishok Connect শুধু Portrait Mode-এ ব্যবহার করুন";
+    position:fixed;inset:0;z-index:9999;background:#f4f6f2;color:#173b22;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    padding:30px;font-size:17px;font-weight:700;
+  }
+}
+
+/* Farmer dashboard: reduce "AI-generated" visual cues and use practical app UI. */
+body.user-app .dashboard-header{background:#fff;color:#173b22;border-bottom:1px solid #e2e7e1;padding-bottom:13px}
+body.user-app .dashboard-header .brand-name{color:#173b22}
+body.user-app .dashboard-header .brand-tag,body.user-app .dashboard-kicker,body.user-app .dashboard-location{color:#718078}
+body.user-app .dashboard-welcome h1{color:#173b22;font-size:21px}
+body.user-app .dashboard-avatar{border-color:#e6ece6}
+body.user-app .dashboard-main{padding:11px 15px 88px}
+body.user-app .dashboard-hero-card{min-height:112px;border-radius:13px;padding:14px;background:#edf6ea;border:1px solid #d7e7d3;box-shadow:none}
+body.user-app .hero-pill{background:#fff;border-color:#d8e6d4;padding:4px 8px}
+body.user-app .hero-copy h2{font-size:18px;color:#214c2b;margin-top:6px}
+body.user-app .hero-copy p{font-size:11px;margin-top:4px}
+body.user-app .hero-illustration{font-size:42px;opacity:.85}
+body.user-app .stats-grid{gap:6px;margin:10px 0}
+body.user-app .dashboard-stat{border-radius:11px;padding:9px 3px;box-shadow:none}
+body.user-app .dashboard-stat b{font-size:18px}
+body.user-app .farm-journal-card{border-radius:13px;padding:12px;box-shadow:none}
+body.user-app .journal-box{border-radius:11px;background:#fff}
+body.user-app .journal-box textarea{min-height:76px;font-size:13.5px}
+body.user-app .round-tool{width:34px;height:34px;border-radius:9px}
+body.user-app .send-journal{height:34px;border-radius:9px;padding:0 12px}
+body.user-app .service-card{border-radius:11px;box-shadow:none;min-height:60px;padding:10px}
+body.user-app .link-list a{border-radius:11px;box-shadow:none}
+
+.kc-modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center;z-index:1000;padding:12px}.kc-modal[hidden]{display:none}.kc-modal-card{background:var(--surface,#fff);width:min(620px,100%);border-radius:18px;padding:16px;box-shadow:0 12px 40px rgba(0,0,0,.18);max-height:90vh;overflow:auto}.change{border:0;background:none;padding:0;font:inherit;color:var(--primary);cursor:pointer}

@@ -1,0 +1,12 @@
+{
+  "name": "Krishok Connect Staff",
+  "short_name": "KC Staff",
+  "description": "Krishok Connect management and department staff application",
+  "start_url": "./staff-login.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f5f7f6",
+  "theme_color": "#1f7a45",
+  "lang": "bn"
+}

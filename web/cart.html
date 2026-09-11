@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>কার্ট — Krishok Connect</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+</head>
+<body class="user-app">
+<div class="app">
+  <header class="page-header">
+    <a class="icon-btn" href="marketplace.html"><span data-icon="back"></span></a>
+    <div class="page-title">আমার কার্ট</div>
+  </header>
+
+  <div id="cartList" style="padding:12px 16px; display:flex; flex-direction:column; gap:10px;"></div><div id="checkoutBox" style="padding:0 16px 90px;display:none"><div class="card" style="padding:14px"><div style="font-weight:800;margin-bottom:10px">চেকআউট</div><div class="field"><label>ডেলিভারি ঠিকানা</label><textarea id="deliveryAddress" placeholder="সম্পূর্ণ ঠিকানা"></textarea></div><div class="field"><label>পেমেন্ট</label><div class="card" style="padding:10px">ক্যাশ অন ডেলিভারি</div></div><button id="checkoutBtn" class="btn btn-primary btn-full">অর্ডার করুন</button></div></div>
+
+  <div class="bottom-nav" id="bottomNav"></div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async()=>{await kcReady;if(!KC.currentUserId)return;mountIcons();renderBottomNav("market");const list=document.getElementById("cartList");const ids=KC.cart||[];if(!ids.length){list.innerHTML=`<div class="empty-state"><div class="empty-emoji">🛒</div><div class="empty-title">আপনার কার্ট খালি</div><div class="empty-text">মার্কেটপ্লেস থেকে পণ্য যোগ করুন</div></div>`;return;}list.innerHTML=ids.map((x,i)=>{const p=kcProduct(x.productId);return `<div class="card" style="display:flex;gap:11px;padding:11px;align-items:center"><img src="${p?.images?.[0]||''}" style="width:56px;height:56px;border-radius:10px;object-fit:cover"><div style="flex:1"><div style="font-size:13px;font-weight:700">${escapeHtml(p?.name||'পণ্য')}</div><div style="font-size:12px;color:var(--primary);font-weight:700">${escapeHtml(p?.price||'')}</div><div style="font-size:11px;color:var(--ink-muted)">পরিমাণ: ${x.quantity}</div></div><button class="icon-btn on-light" data-remove="${x.productId}">${icon('logout',16)}</button></div>`}).join('');list.querySelectorAll('[data-remove]').forEach(b=>b.onclick=async()=>{try{await KC_API.del('/api/v1/cart/'+b.dataset.remove);location.reload()}catch(e){toast(e.message)}});document.getElementById('checkoutBox').style.display='block';document.getElementById('checkoutBtn').onclick=async()=>{const address=document.getElementById('deliveryAddress').value.trim();if(address.length<5)return toast('ডেলিভারি ঠিকানা দিন');try{const o=await KC_API.post('/api/v1/orders',{delivery_address:address});toast('অর্ডার সফল হয়েছে: '+o.id); setTimeout(()=>location.href='order-detail.html?id='+encodeURIComponent(o.id),900)}catch(e){toast(e.message)}};});
+</script>
+</body>
+</html>

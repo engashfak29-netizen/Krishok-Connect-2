@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#123b1a">
+<title>Krishok Connect — হোম</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+</head>
+<body class="user-app">
+<div class="app">
+
+  <header class="app-header">
+    <div class="header-row">
+      <div class="brand">
+        <div class="brand-mark">🌾</div>
+        <div>
+          <div class="brand-name">Krishok Connect</div>
+          <div class="brand-tag">কৃষকের ডিজিটাল প্ল্যাটফর্ম</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="icon-btn" href="search.html" aria-label="সার্চ"><span data-icon="search"></span></a>
+        <a class="icon-btn" href="notifications.html" id="bellBtn" aria-label="নোটিফিকেশন">
+          <span data-icon="bell"></span>
+          <span class="badge-dot" id="notifBadge" style="display:none"></span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="weather-card" id="weatherCard"></div>
+
+  <div class="section" style="padding-bottom:0;">
+    <div class="section-head">
+      <div class="section-title">আজকের বাজারদর</div>
+      <a class="link-sm" href="market-prices.html">সব দেখুন</a>
+    </div>
+    <div class="price-row" id="priceRow"></div>
+  </div>
+
+  <div class="advice-card">
+    <div class="advice-ico"><span data-icon="leaf" data-size="18"></span></div>
+    <div>
+      <div class="advice-title">আজকের কৃষি পরামর্শ</div>
+      <div class="advice-text">টমেটো গাছে লিফ মাইনার দেখা দিলে নিমতেল স্প্রে করুন। বিস্তারিত পরামর্শ পেতে AI সহায়ককে জিজ্ঞাসা করুন।</div>
+    </div>
+  </div>
+
+  <div class="composer">
+    <div class="composer-row">
+      <img class="avatar avatar-42" id="meAvatar" src="" alt="">
+      <a href="create-post.html" class="composer-input" id="composerInput">আপনার কিছু জানাতে চান?</a>
+    </div>
+    <div class="composer-actions">
+      <a href="create-post.html?type=photo" class="composer-action photo"><span data-icon="camera" data-size="17"></span>&nbsp;ছবি</a>
+      <a href="create-post.html?type=video" class="composer-action video"><span data-icon="video" data-size="17"></span>&nbsp;ভিডিও</a>
+      <a href="create-post.html?type=location" class="composer-action loc"><span data-icon="location" data-size="17"></span>&nbsp;লোকেশন</a>
+    </div>
+  </div>
+
+  <div class="section-head" style="padding:16px 16px 0;">
+    <div class="section-title">নিউজ ফিড</div>
+  </div>
+  <div class="feed" id="feed"></div>
+
+  <div class="bottom-nav" id="bottomNav"></div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

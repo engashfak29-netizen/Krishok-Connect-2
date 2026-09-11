@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>মার্কেটপ্লেস — Krishok Connect</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+</head>
+<body class="user-app">
+<div class="app">
+
+  <header class="page-header">
+    <a class="icon-btn" href="index.html"><span data-icon="back"></span></a>
+    <div class="page-title">মার্কেটপ্লেস</div>
+    <div class="header-actions">
+      <a class="icon-btn" href="cart.html">
+        <span data-icon="cart"></span>
+        <span class="badge-dot" id="cartBadge" style="display:none; background:var(--red);"></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="search-wrap flat">
+    <div class="search-capsule">
+      <span class="ico" data-icon="search" data-size="18"></span>
+      <input type="text" id="searchBox" placeholder="পণ্য খুঁজুন...">
+    </div>
+  </div>
+
+  <div class="loc-row">
+    <span data-icon="location" data-size="15" style="color:var(--primary)"></span>
+    <span id="locLabel"></span>
+    <button class="change" id="changeLocationBtn" type="button">পরিবর্তন করুন</button>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-title" style="margin-bottom:10px;">ক্যাটাগরি</div>
+    <div id="catGrid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px;"></div>
+  </div>
+
+  <div class="section-head" style="padding:6px 16px 0;">
+    <div class="section-title" id="resultsTitle">নিকটস্থ পণ্য</div>
+    <a class="link-sm" href="#" id="clearFilter" style="display:none;">সব দেখুন</a>
+  </div>
+  <div id="marketAds"></div><div class="product-grid" id="productGrid"></div>
+
+  
+<div id="locationDialog" class="kc-modal" hidden><div class="kc-modal-card"><div class="section-head"><div class="section-title">মার্কেটপ্লেস লোকেশন</div><button class="icon-btn" id="closeLocationBtn" type="button">×</button></div><div class="grid-2"><input id="locDivision" class="input" placeholder="বিভাগ"><input id="locDistrict" class="input" placeholder="জেলা"><input id="locUpazila" class="input" placeholder="উপজেলা"><input id="locUnion" class="input" placeholder="ইউনিয়ন / এলাকা"></div><input id="locArea" class="input" placeholder="এলাকার নাম / বাজার"><div style="display:flex;gap:8px;margin-top:10px"><button id="saveLocationBtn" class="btn btn-primary">লোকেশন সেভ</button><button id="cancelLocationBtn" class="btn btn-outline">বাতিল</button></div></div></div>
+<div class="bottom-nav" id="bottomNav"></div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script src="marketplace.js"></script>
+</body>
+</html>
