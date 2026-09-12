@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#123b1a">
+<title>প্রোফাইল — Krishok Connect</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+</head>
+<body class="user-app">
+<div class="app">
+
+  <div class="profile-cover">
+    <img id="coverImg" src="" alt="">
+    <div class="cover-top-actions">
+      <a class="icon-btn" href="index.html"><span data-icon="back"></span></a>
+      <div style="display:flex; gap:8px;" id="ownerActions"></div>
+    </div>
+  </div>
+
+  <div class="profile-head">
+    <div class="profile-avatar-wrap"><img id="avatarImg" src="" alt=""></div>
+    <div class="profile-name-row">
+      <div class="profile-name" id="pName"></div>
+      <span id="pVerified"></span>
+    </div>
+    <div class="profile-rating"><span class="stars" id="pStars"></span><span id="pRatingText"></span></div>
+    <div class="profile-sub" id="pSub"></div>
+
+    <div class="stat-row">
+      <div class="stat-item"><div class="stat-num" id="statPosts"></div><div class="stat-lbl">পোস্ট</div></div>
+      <div class="stat-item"><div class="stat-num" id="statFollowers"></div><div class="stat-lbl">ফলোয়ার</div></div>
+      <div class="stat-item"><div class="stat-num" id="statFollowing"></div><div class="stat-lbl">ফলোইং</div></div>
+    </div>
+
+    <div class="info-list" id="infoList"></div>
+
+    <div class="profile-btn-row" id="actionRow"></div>
+  </div>
+
+  <div class="tab-row" id="tabRow">
+    <button class="tab-item active" data-tab="posts">পোস্ট</button>
+    <button class="tab-item" data-tab="products">পণ্য</button>
+    <button class="tab-item" data-tab="about">সম্পর্কে</button>
+  </div>
+
+  <div id="tabContent"></div>
+
+  <div class="bottom-nav" id="bottomNav"></div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script src="profile.js"></script>
+</body>
+</html>

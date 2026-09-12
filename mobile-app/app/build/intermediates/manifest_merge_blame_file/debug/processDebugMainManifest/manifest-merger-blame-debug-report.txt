@@ -1,0 +1,152 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.krishokconnect"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.CAMERA" />
+13-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:7:5-65
+13-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:7:22-62
+14    <uses-permission
+14-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:8:5-107
+15        android:name="android.permission.READ_EXTERNAL_STORAGE"
+15-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:8:22-77
+16        android:maxSdkVersion="32" />
+16-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:8:78-104
+17    <uses-permission
+17-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:9:5-108
+18        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+18-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:9:22-78
+19        android:maxSdkVersion="32" />
+19-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:9:79-105
+20
+21    <permission
+21-->[androidx.core:core:1.12.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\1efb4a1b620434d0453ef6977b3f60b3\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+22        android:name="com.krishokconnect.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+22-->[androidx.core:core:1.12.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\1efb4a1b620434d0453ef6977b3f60b3\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+23        android:protectionLevel="signature" />
+23-->[androidx.core:core:1.12.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\1efb4a1b620434d0453ef6977b3f60b3\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+24
+25    <uses-permission android:name="com.krishokconnect.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+25-->[androidx.core:core:1.12.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\1efb4a1b620434d0453ef6977b3f60b3\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+25-->[androidx.core:core:1.12.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\1efb4a1b620434d0453ef6977b3f60b3\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+26
+27    <application
+27-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:11:5-28:19
+28        android:allowBackup="true"
+28-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:12:9-35
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.12.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\1efb4a1b620434d0453ef6977b3f60b3\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+30        android:debuggable="true"
+31        android:extractNativeLibs="false"
+32        android:icon="@mipmap/ic_launcher"
+32-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:13:9-43
+33        android:label="Krishok Connect"
+33-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:14:9-40
+34        android:roundIcon="@mipmap/ic_launcher_round"
+34-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:15:9-54
+35        android:supportsRtl="true"
+35-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:16:9-35
+36        android:testOnly="true"
+37        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+37-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:17:9-65
+38        android:usesCleartextTraffic="true" >
+38-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:18:9-44
+39        <activity
+39-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:19:9-27:20
+40            android:name="com.krishokconnect.MainActivity"
+40-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:20:13-41
+41            android:configChanges="orientation|screenSize|keyboardHidden"
+41-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:22:13-74
+42            android:exported="true" >
+42-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:21:13-36
+43            <intent-filter>
+43-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:23:13-26:29
+44                <action android:name="android.intent.action.MAIN" />
+44-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:24:17-69
+44-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:24:25-66
+45
+46                <category android:name="android.intent.category.LAUNCHER" />
+46-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:25:17-77
+46-->C:\Users\Ashfakur Rahman\StudioProjects\Krishok-Connect-2\mobile-app\app\src\main\AndroidManifest.xml:25:27-74
+47            </intent-filter>
+48        </activity>
+49
+50        <provider
+50-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\7175cba6abc00625420fab868f0e0d7f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+51            android:name="androidx.startup.InitializationProvider"
+51-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\7175cba6abc00625420fab868f0e0d7f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+52            android:authorities="com.krishokconnect.androidx-startup"
+52-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\7175cba6abc00625420fab868f0e0d7f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+53            android:exported="false" >
+53-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\7175cba6abc00625420fab868f0e0d7f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+54            <meta-data
+54-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\7175cba6abc00625420fab868f0e0d7f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+55                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\7175cba6abc00625420fab868f0e0d7f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+56                android:value="androidx.startup" />
+56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\7175cba6abc00625420fab868f0e0d7f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+57            <meta-data
+57-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\6b69d01762f1f31300af3c73932798fd\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+58                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+58-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\6b69d01762f1f31300af3c73932798fd\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+59                android:value="androidx.startup" />
+59-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\6b69d01762f1f31300af3c73932798fd\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+60            <meta-data
+60-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+61                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+61-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+62                android:value="androidx.startup" />
+62-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+63        </provider>
+64
+65        <receiver
+65-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+66            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+66-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+67            android:directBootAware="false"
+67-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+68            android:enabled="true"
+68-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+69            android:exported="true"
+69-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+70            android:permission="android.permission.DUMP" >
+70-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+71            <intent-filter>
+71-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+72                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+72-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+72-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+73            </intent-filter>
+74            <intent-filter>
+74-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+75                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+76            </intent-filter>
+77            <intent-filter>
+77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+78                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+79            </intent-filter>
+80            <intent-filter>
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+81                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Ashfakur Rahman\.gradle\caches\8.13\transforms\11ac225568293ad1974ee725fd7d4c21\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+82            </intent-filter>
+83        </receiver>
+84    </application>
+85
+86</manifest>

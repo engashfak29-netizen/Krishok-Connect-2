@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#123b1a">
+<title>AI কৃষি সহায়ক — Krishok Connect</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+<style>
+  .ai-tab-row{display:flex; gap:8px; padding:12px 16px 4px;}
+  .ai-tab{flex:1; text-align:center; padding:10px 6px; border-radius:14px; font-size:12.5px; font-weight:700; background:var(--surface); border:1px solid var(--line); color:var(--ink-muted);}
+  .ai-tab.active{background:var(--primary); border-color:var(--primary); color:#fff;}
+  .ai-panel{display:none;}
+  .ai-panel.active{display:block;}
+  .ai-chat-body{padding:14px 16px calc(var(--nav-h) + 118px + env(safe-area-inset-bottom)); display:flex; flex-direction:column; gap:10px; min-height:40vh;}
+  .ai-msg{max-width:85%; padding:11px 14px; border-radius:16px; font-size:13px; line-height:1.6;}
+  .ai-msg.bot{background:var(--surface); border:1px solid var(--line); border-bottom-left-radius:4px; align-self:flex-start;}
+  .ai-msg.user{background:var(--primary); color:#fff; border-bottom-right-radius:4px; align-self:flex-end;}
+  .ai-quick-row{display:flex; gap:8px; flex-wrap:wrap; padding:2px 16px 10px;}
+  .ai-quick{background:var(--surface); border:1px solid var(--primary); color:var(--primary); font-size:11.5px; font-weight:600; padding:7px 13px; border-radius:14px;}
+
+  /* AI chat: keep composer above the floating bottom navigation */
+  #chatInputBar{
+    bottom:calc(var(--nav-h) + 30px + env(safe-area-inset-bottom));
+    z-index:45;
+  }
+  @media (max-width:520px){
+    #chatInputBar{width:calc(100% - 24px);}
+  }
+</style>
+</head>
+<body class="user-app">
+<div class="app">
+
+  <header class="app-header">
+    <div class="header-row">
+      <div class="header-back-row">
+        <a class="icon-btn" href="index.html"><span data-icon="back"></span></a>
+        <div>
+          <div class="brand-name">AI কৃষি সহায়ক</div>
+          <div class="brand-tag">রোগ, ওষুধ ও পরামর্শ — বাংলা/ইংরেজি/ভয়েস</div>
+        </div>
+      </div>
+      <div class="ai-badge" style="background:rgba(255,255,255,0.18); color:#fff; font-size:10.5px; font-weight:600; padding:5px 10px; border-radius:20px; display:flex; align-items:center; gap:5px; flex-shrink:0;">
+        <span style="width:6px; height:6px; border-radius:50%; background:var(--accent); display:inline-block;"></span> AI
+      </div>
+    </div>
+  </header>
+
+  <div class="ai-tab-row">
+    <button class="ai-tab active" data-tab="finder">ওষুধ/রোগ খুঁজুন</button>
+    <button class="ai-tab" data-tab="chat">উপসর্গ বলুন</button>
+  </div>
+
+  <!-- ========== ট্যাব ১: বালাইনাশক ফাইন্ডার ========== -->
+  <div class="ai-panel active" id="panelFinder">
+    <div class="search-wrap flat">
+      <div class="search-capsule" id="searchCapsule">
+        <span class="ico" data-icon="search" data-size="18"></span>
+        <input type="text" id="searchInput" placeholder="রোগ/পোকা বা ওষুধের নাম লিখুন...">
+        <button class="icon-btn on-light" id="micBtn" style="width:38px; height:38px;"><span data-icon="mic" data-size="17"></span></button>
+      </div>
+      <div class="ai-fab-hint" id="listeningHint" style="display:none;">🎙️ শুনছি... এখন বলুন</div>
+    </div>
+
+    <div class="chip-row" id="chipRow">
+      <button class="chip pill active" data-cat="all"><span class="chip-label">সব</span></button>
+      <button class="chip pill" data-cat="insecticide"><span class="chip-label">🐛 কীটনাশক</span></button>
+      <button class="chip pill" data-cat="fungicide"><span class="chip-label">🍄 ছত্রাকনাশক</span></button>
+      <button class="chip pill" data-cat="herbicide"><span class="chip-label">🌾 আগাছানাশক</span></button>
+      <button class="chip pill" data-cat="acaricide"><span class="chip-label">🕷️ মাকড়নাশক</span></button>
+    </div>
+
+    <div class="ai-quick-row" id="exampleRow"></div>
+
+    <div id="suggestBox"></div>
+    <div style="padding:10px 16px 4px; font-size:12px; color:var(--ink-muted); font-weight:600;" id="resultsMeta"></div>
+    <div style="padding:0 16px 20px; display:flex; flex-direction:column; gap:12px;" id="results"></div>
+  </div>
+
+  <!-- ========== ট্যাব ২: উপসর্গ-ভিত্তিক সহজ চ্যাট ========== -->
+  <div class="ai-panel" id="panelChat">
+    <div class="diagnosis-tools" style="padding:8px 16px 4px;">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+        <input id="cropInput" class="search-input" style="flex:1;min-width:120px;padding:10px;border:1px solid var(--line);border-radius:12px;" placeholder="ফসলের নাম (যেমন ধান)">
+        <label class="ai-quick" style="cursor:pointer;"><input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" style="display:none">📷 ছবি দিন</label>
+      </div>
+      <div id="imagePreview" style="display:none;margin-top:8px;"></div>
+    </div>
+    <div class="ai-chat-body" id="chatBody"></div>
+  </div>
+
+  <div class="chat-input-bar" id="chatInputBar" style="display:none;">
+    <input type="text" id="chatInput" placeholder="যেমন: ধানের পাতা হলুদ হয়ে যাচ্ছে...">
+    <button class="send-btn" id="chatSendBtn"><span data-icon="send" data-size="17"></span></button>
+  </div>
+
+  <div class="bottom-nav" id="bottomNav"></div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script src="ai-fallback-data.js"></script>
+<script src="ai-data-loader.js"></script>
+<script src="ai-search-engine.js"></script>
+<script src="ai.js"></script>
+</body>
+</html>

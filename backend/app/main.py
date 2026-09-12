@@ -2217,6 +2217,7 @@ def _openai_chat(prompt):
         answer=answer.strip()
     return {'answer':answer,'provider':'openai','model':model} if answer else None
 
+@app.post('/api/v1/ai/chat')
 def ai_chat(x:AIIn,u=Depends(me)):
     base=os.getenv('OLLAMA_URL','http://127.0.0.1:11434').rstrip('/')
     model=os.getenv('OLLAMA_MODEL','qwen2.5:3b')

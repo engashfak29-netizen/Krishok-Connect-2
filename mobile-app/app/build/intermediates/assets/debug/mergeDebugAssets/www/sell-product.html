@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>পণ্য বিক্রি করুন — Krishok Connect</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+</head>
+<body class="user-app">
+<div class="app">
+  <header class="page-header">
+    <a class="icon-btn" href="marketplace.html"><span data-icon="back"></span></a>
+    <div class="page-title">পণ্য বিক্রি করুন</div>
+  </header>
+
+  <div style="padding:16px;">
+    <div class="field">
+      <label>পণ্যের ছবি</label>
+      <div id="imgPreviewRow" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px;"></div>
+      <button class="btn btn-outline btn-full" id="addImgBtn"><span data-icon="camera" data-size="17"></span>&nbsp;ছবি যোগ করুন</button>
+    </div>
+    <div class="field">
+      <label>পণ্যের নাম</label>
+      <input type="text" id="fName" placeholder="যেমন: টমেটো">
+    </div>
+    <div class="field">
+      <label>ক্যাটাগরি</label>
+      <select id="fCategory"></select>
+    </div>
+    <div class="field">
+      <label>একক</label>
+      <select id="fUnit"><option value="kg">কেজি</option><option value="piece">পিস</option><option value="liter">লিটার</option><option value="dozen">ডজন</option><option value="bag">বস্তা</option></select>
+    </div>
+    <div class="field">
+      <label>দাম</label>
+      <input type="text" id="fPrice" placeholder="যেমন: ৳ ৬০ / কেজি">
+    </div>
+    <div class="field">
+      <label>মজুদের পরিমাণ</label>
+      <input type="text" id="fStock" placeholder="যেমন: ৫০ কেজি মজুদ আছে">
+    </div>
+    <div class="field">
+      <label>সার্চ ট্যাগ / #ট্যাগ</label>
+      <input type="text" id="fTags" placeholder="যেমন: টমেটো, সবজি, #দেশি_টমেটো">
+      <div class="muted" style="font-size:12px;margin-top:4px">কমা দিয়ে একাধিক ট্যাগ দিন। # চিহ্ন থাকলে সিস্টেম নিজে পরিষ্কার করবে।</div>
+    </div>
+    <div class="field">
+      <label>বিবরণ</label>
+      <textarea id="fDesc" placeholder="পণ্যের বিস্তারিত লিখুন..."></textarea>
+    </div>
+    <button class="btn btn-primary btn-full" id="publishBtn">পণ্য প্রকাশ করুন</button>
+  </div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script src="sell-product.js"></script>
+</body>
+</html>

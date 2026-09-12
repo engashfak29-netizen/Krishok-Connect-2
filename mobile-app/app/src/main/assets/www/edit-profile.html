@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>প্রোফাইল এডিট — Krishok Connect</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+</head>
+<body class="user-app">
+<div class="app">
+  <header class="page-header">
+    <a class="icon-btn" href="profile.html"><span data-icon="back"></span></a>
+    <div class="page-title">প্রোফাইল এডিট করুন</div>
+  </header>
+
+  <div style="padding:16px;">
+    <div style="text-align:center; margin-bottom:18px;">
+      <div class="profile-avatar-wrap" style="margin:0 auto; width:88px; height:88px;"><img id="avatarPreview" src="" alt=""></div>
+      <button class="link-sm" id="changeAvatarBtn" style="margin-top:8px;">ছবি পরিবর্তন করুন</button>
+    </div>
+    <div class="field"><label>নাম</label><input type="text" id="fName"></div>
+    <div class="field"><label>ঠিকানা</label><input type="text" id="fLocation"></div>
+    <div class="field"><label>ফোন নম্বর</label><input type="text" id="fPhone"></div>
+    <div class="field"><label>ইমেইল</label><input type="text" id="fEmail"></div>
+    <div class="field"><label>নিজের সম্পর্কে</label><textarea id="fBio"></textarea></div>
+    <button class="btn btn-primary btn-full" id="saveBtn">সংরক্ষণ করুন</button>
+  </div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async()=>{
+  await kcReady; if(!KC.currentUserId)return;
+  mountIcons();
+  const me = kcMe();
+  document.getElementById("avatarPreview").src = me.avatar;
+  document.getElementById("fName").value = me.name;
+  document.getElementById("fLocation").value = me.location;
+  document.getElementById("fPhone").value = me.phone || "";
+  document.getElementById("fEmail").value = me.email || "";
+  document.getElementById("fBio").value = me.bio || "";
+
+  const fileInput = document.createElement("input");
+  fileInput.type = "file"; fileInput.accept = "image/*"; fileInput.style.display = "none";
+  document.body.appendChild(fileInput);
+  document.getElementById("changeAvatarBtn").addEventListener("click", ()=> fileInput.click());
+  fileInput.addEventListener("change", ()=>{
+    const f = fileInput.files[0]; if(!f) return;
+    const reader = new FileReader();
+    reader.onload = e => { document.getElementById("avatarPreview").src = e.target.result; me._newAvatar = e.target.result; };
+    reader.readAsDataURL(f);
+  });
+
+  document.getElementById("saveBtn").addEventListener("click", async()=>{
+    try{
+      const updated=await KC_API.patch('/api/v1/users/me',{name:document.getElementById("fName").value.trim()||me.name,location:document.getElementById("fLocation").value.trim(),bio:document.getElementById("fBio").value.trim(),avatar:me._newAvatar||me.avatar,email:document.getElementById("fEmail").value.trim()||null,phone:document.getElementById("fPhone").value.trim()||null});
+      Object.assign(me,updated); delete me._newAvatar; toast("প্রোফাইল সংরক্ষণ করা হয়েছে"); setTimeout(()=>location.href="profile.html",500);
+    }catch(e){toast(e.message)}
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>পণ্যের বিবরণ — Krishok Connect</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+</head>
+<body class="user-app">
+<div class="app">
+
+  <header class="page-header">
+    <a class="icon-btn" href="marketplace.html"><span data-icon="back"></span></a>
+    <div class="page-title">পণ্যের বিবরণ</div>
+    <div class="header-actions">
+      <a class="icon-btn" href="cart.html">
+        <span data-icon="cart"></span>
+        <span class="badge-dot" id="cartBadge" style="display:none; background:var(--red);"></span>
+      </a>
+    </div>
+  </header>
+
+  <div id="productBody" style="padding-bottom:100px;"></div><div id="reviewsBox" style="padding:0 16px 110px"></div>
+
+  <div class="chat-input-bar" id="buyBar" style="justify-content:space-between; gap:10px;">
+    <button class="btn btn-outline" style="flex:1" id="chatSellerBtn"><span data-icon="chat" data-size="16"></span>&nbsp;মেসেজ</button>
+    <button class="btn btn-primary" style="flex:1.4" id="addCartBtn">কার্টে যোগ করুন</button>
+  </div>
+
+  <div class="bottom-nav" id="bottomNav" style="display:none;"></div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script src="product.js"></script>
+</body>
+</html>

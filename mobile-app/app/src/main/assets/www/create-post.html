@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>নতুন পোস্ট — Krishok Connect</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile-app.css">
+</head>
+<body class="user-app">
+<div class="app">
+  <header class="page-header">
+    <a class="icon-btn" href="index.html"><span data-icon="back"></span></a>
+    <div class="page-title">নতুন পোস্ট</div>
+    <div class="header-actions">
+      <button class="btn btn-primary" style="padding:9px 18px;" id="publishBtn">পোস্ট করুন</button>
+    </div>
+  </header>
+
+  <div style="padding:16px;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+      <img class="avatar avatar-42" id="meAvatar" src="" alt="">
+      <div>
+        <div id="meName" style="font-size:13.5px; font-weight:700;"></div>
+        <div style="font-size:11px; color:var(--ink-muted);">সবাই দেখতে পাবে</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <textarea id="postText" placeholder="আপনার ফসল, খবর বা প্রশ্ন সবাইকে জানান..." style="min-height:130px;"></textarea>
+    </div>
+
+    <div id="imgPreviewRow" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;"></div>
+
+    <div class="card" style="padding:6px; display:flex;">
+      <button class="composer-action photo" id="addImgBtn" style="flex:1;"><span data-icon="camera" data-size="17"></span>&nbsp;ছবি যোগ করুন</button>
+      <button class="composer-action video" id="addVidBtn" style="flex:1;" ><span data-icon="video" data-size="17"></span>&nbsp;ভিডিও</button>
+      <button class="composer-action loc" id="addLocBtn" style="flex:1;"><span data-icon="location" data-size="17"></span>&nbsp;লোকেশন</button>
+    </div>
+  </div>
+</div>
+
+<script src="icons.js"></script>
+<script src="api.js"></script>
+<script src="app-data.js"></script>
+<script src="app-common.js"></script>
+<script src="create-post.js"></script>
+</body>
+</html>

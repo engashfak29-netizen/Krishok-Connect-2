@@ -85,7 +85,7 @@ async function modProduct(id,a){await A('/api/v1/department/moderation/products/
 
 function table(rows,cols,actions){if(!rows||!rows.length)return '<p class="muted">কোনো record পাওয়া যায়নি।</p>';return `<div class="table-wrap"><table><thead><tr>${cols.map(c=>`<th>${esc(c)}</th>`).join('')}<th>Action</th></tr></thead><tbody>${rows.map(r=>`<tr>${cols.map(c=>`<td>${esc(typeof r[c]==='object'?JSON.stringify(r[c]):r[c])}</td>`).join('')}<td>${actions?actions(r):''}</td></tr>`).join('')}</tbody></table></div>`}
 
-async function init(){try{if(!localStorage.getItem('kc_access_token')){location.href='/staff-login.html?role='+role;return}const d=await A('/api/v1/rbac/me');if(!d.roles.includes(role)){location.href='/staff-login.html?role='+role;return}document.getElementById('who').textContent=d.user.name+' • '+names[role];document.getElementById('roles').textContent='Roles: '+d.roles.join(', ');document.getElementById('perms').textContent='Permissions: '+d.permissions.join(', ');const dash=await A('/api/v1/department/dashboard');document.getElementById('stats').innerHTML=statCards(dash.stats);
+async function init(){try{if(!localStorage.getItem('kc_access_token')){location.href='../staff-login.html?role='+role;return}const d=await A('/api/v1/rbac/me');if(!d.roles.includes(role)){location.href='../staff-login.html?role='+role;return}document.getElementById('who').textContent=d.user.name+' • '+names[role];document.getElementById('roles').textContent='Roles: '+d.roles.join(', ');document.getElementById('perms').textContent='Permissions: '+d.permissions.join(', ');const dash=await A('/api/v1/department/dashboard');document.getElementById('stats').innerHTML=statCards(dash.stats);
  if(role==='super_admin')return initSuperAdmin();
  if(role==='admin')shell('Admin',[['users','Users'],['reports','Reports'],['analytics','Analytics'],['audit','Audit Logs']]);
  if(role==='crop_admin')shell('Crop Intelligence',[['summary','Summary'],['entry','Data Entry'],['review','Review & Approval'],['catalog','Catalog']]);
@@ -97,5 +97,5 @@ async function init(){try{if(!localStorage.getItem('kc_access_token')){location.
  }catch(e){document.body.innerHTML='<main style="padding:30px"><h2>Access denied</h2><p>'+esc(e.message)+'</p></main>'}}
 
 async function initSuperAdmin(){/* NEXT25 control center is retained by its dedicated HTML */}
-function logout(){localStorage.removeItem('kc_access_token');localStorage.removeItem('kc_staff_role');location.href='/staff-login.html?role='+role}
+function logout(){localStorage.removeItem('kc_access_token');localStorage.removeItem('kc_staff_role');location.href='../staff-login.html?role='+role}
 init();

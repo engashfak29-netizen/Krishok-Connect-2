@@ -1,0 +1,7 @@
+- `[x]` Create Android project directory structure
+- `[x]` Create project-level `build.gradle` and `settings.gradle`
+- `[x]` Create app-level `build.gradle`
+- `[x]` Create `AndroidManifest.xml` with required permissions
+- `[x]` Implement `MainActivity.kt` with WebView logic
+- `[x]` Copy frontend assets to `assets/www`
+- `[x]` Add a `README_MOBILE.md` with instructions on how to build the APK
